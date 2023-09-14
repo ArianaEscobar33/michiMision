@@ -5,8 +5,8 @@ FBox crearCajaRaw(float x, float y, float w, float h, color c, float g) {
   main.setFillColor(c);
   main.setFriction(1.0);
   main.setRestitution(0.2);
-  float we = (w / 20);
-  float he = (h / 20);
+  float we = (w / 30);
+  float he = (h / 30);
   main.setDensity(g / (we * he));
   main.setNoStroke();
   return main;
