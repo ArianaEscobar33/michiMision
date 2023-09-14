@@ -1,26 +1,30 @@
 import fisica.*;
 
 FWorld mundo;
-FBox caja1;
-FBox caja2;
 
 void setup() {
   size(800, 600);
-  frameRate(60);
   Fisica.init(this);
   mundo = new FWorld();
+  mundo.setEdges();
+  
+  int numCajas = int(random(10, 21)); // Genera un número aleatorio entre 10 y 20
 
- mundo.setEdges();
-
-  caja1 = crearCaja(width/2, 90, 100, 100, color(255, 0, 0));
-
-  caja2 = crearCaja(width/2, height-290, 100, 100, color(255, 0, 0));
-
-  //caja1.setFriction(0.1);
-  //caja2.setFriction(100);//perdida de energia en relacion al contacto con otros objetos
-
-  mundo.add(caja1);
-  mundo.add(caja2);
+  for (int i = 0; i < numCajas; i++) {
+    float x = random(width);
+    float y = random(height);
+    float w = random(50, 150); // Tamaño aleatorio de la caja
+    float h = random(50, 150);
+    color c = color(random(255), random(255), random(255)); // Color aleatorio
+    float density = 10;
+    
+    // Asegúrate de que la caja esté dentro de los límites de la pantalla
+    x = constrain(x, 0, width - w);
+    y = constrain(y, 0, height - h);
+    
+    FBox caja = crearCajaRaw(x, y, w, h, c, density);
+    mundo.add(caja);
+  }
 }
 
 void draw() {
