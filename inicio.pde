@@ -1,7 +1,7 @@
 void pantallaInicio(){
   background(200);
   fill(255,0,0);
-  textSize(20);
+  textSize(40);
   text("michiMision",350,200);
   rect(350,300,100,50);
 }
