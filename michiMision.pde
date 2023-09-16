@@ -2,12 +2,16 @@ import fisica.*;
 
 FWorld mundo;
 
+String pantalla;
+
 void setup() {
   size(800, 600);
+  pantalla="inicio";
   Fisica.init(this);
   mundo = new FWorld();
   mundo.setEdges();
   
+<<<<<<< Updated upstream
   int numCajas = int(random(10, 21)); // Genera un número aleatorio entre 10 y 20
 
   for (int i = 0; i < numCajas; i++) {
@@ -25,10 +29,21 @@ void setup() {
     FBox caja = crearCajaRaw(x, y, w, h, c, density);
     mundo.add(caja);
   }
+=======
+  
+>>>>>>> Stashed changes
 }
 
 void draw() {
-  background(255);
-  mundo.step();
-  mundo.draw();
+  if (pantalla == "inicio"){
+    pantallaInicio();
+  }else if (pantalla == "juego"){
+  pantallaJuego();
+}
+}
+
+void mousePressed(){
+  if (pantalla=="inicio") {
+    botonInicio();
+  } 
 }
