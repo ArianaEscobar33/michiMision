@@ -1,42 +1,50 @@
 import fisica.*;
-
 FWorld mundo;
 
 String pantalla;
-PImage inicio, fondo;
+PImage inicio, fondo,bloque1;
+FBox[] cajas;
+int numCajas = 10; // Número de cajas iniciales
+int cajasApiladas = 0; // Número de cajas apiladas
+boolean ganaste = false;
 
 void setup() {
   size(800, 600);
   inicio = loadImage("Inicio2.png");
   fondo = loadImage("fondo.png");
-  pantalla="inicio";
+  bloque1=loadImage("bloque_prueba.png");
+  pantalla = "inicio";
   Fisica.init(this);
   mundo = new FWorld();
-  mundo.setEdges();
-  int numCajas = int(random(10, 21)); // Genera un número aleatorio entre 10 y 20
+  mundo.setEdges(1);
+  
+
+  cajas = new FBox[numCajas]; // Inicializa el arreglo
 
   for (int i = 0; i < numCajas; i++) {
-    float w = random(50, 70); // Tamaño aleatorio de la caja
-    float h = random(50, 70);
-    color c = color(random(255), random(255), random(255)); // Color aleatorio
-    float density = 10000;
+    float w = 80;
+    float h = 60;
+    color c = color(random(255), random(255), random(255));
+    float density = 1000000;
    
     FBox caja = crearCajaRaw(w, h, c, density);
+    cajas[i] = caja;
     mundo.add(caja);
   }
-  
 }
 
 void draw() {
-  if (pantalla == "inicio"){
+  if (pantalla == "inicio") {
     pantallaInicio();
-  }else if (pantalla == "juego"){
-  pantallaJuego();
-}
+  } else if (pantalla == "juego") {
+    pantallaJuego();
+  }
 }
 
-void mousePressed(){
-  if (pantalla=="inicio") {
+void mousePressed() {
+  if (pantalla == "inicio") {
     botonInicio();
-  } 
+  } else if (pantalla == "juego" && cajasApiladas < 5) {
+   
+  }
 }

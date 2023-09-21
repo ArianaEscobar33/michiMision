@@ -1,14 +1,11 @@
-void pantallaInicio(){
+void pantallaInicio() {
   background(inicio);
-  fill(255,0,0);
-  //textSize(40);
-  //text("michiMision",350,200);
-  rect(350,300,100,50);
+  fill(255, 0, 0);
+  rect(350, 300, 100, 50);
 }
 
-void botonInicio(){
- if ((mouseX>350)&&(mouseX<350+100)&&(mouseY>300)&&(mouseY<300+50)) {
-    pantalla="juego";
-    
+void botonInicio() {
+  if ((mouseX > 350) && (mouseX < 350 + 100) && (mouseY > 300) && (mouseY < 300 + 50)) {
+    pantalla = "juego";
   }
 }
