@@ -1,3 +1,30 @@
+import fisica.*;
+import oscP5.*;
+OscP5 oscP5;
+float x = 400; // posicion de la mano
+float y = 0; // posicion de la mano
+float xPeluche;
+float xGarra;
+float yPeluche;
+float yGarra;
+
+FWorld mundo;
+//FBox garraCerrada;
+FBox garraAbierta;
+FBox peluche;
+MPrismaticJoint prismatico;
+//FBox[] cajas;
+//int numCajas = 1; // Número de cajas iniciales
+
+String pantalla;
+PImage inicio, fondo,garra_abierta, garra_cerrada,bloque1,pantallaperder; 
+PImage[] imagenesBloque = new PImage[8]; // Arreglo para almacenar las imágenes de los bloques
+boolean manoCerrada = false; // Variable para rastrear si la mano está cerrada o abierta
+boolean manoAbierta = true; // Supongamos que la garra está abierta al principio
+
+//boolean ganaste = false;
+
+//audio
 import ddf.minim.*;
 
 Minim minim;
@@ -11,47 +38,36 @@ int tiempoInicial = 20;
 int tiempoRestante = tiempoInicial;
 boolean jugar = false;
 int tiempoAnterior;
-
-import fisica.*;
-FWorld mundo;
-
-String pantalla;
-PImage inicio, fondo, pantallaperder;
-PImage[] imagenesBloque = new PImage[8];
-FBox[] cajas;
-int numCajas = 10;
-int cajasApiladas = 0;
-boolean ganaste = false;
-
+//audio
 void setup() {
   size(800, 600);
+  oscP5 = new OscP5(this, 8008); // Reemplaza 8008 con el puerto correcto de HandPose OSC
+  
   inicio = loadImage("Inicio2.png");
   fondo = loadImage("fondo.png");
+  garra_abierta = loadImage("garra_abierta.png"); 
+  garra_cerrada = loadImage("garra_cerrada.png");
   pantallaperder = loadImage("pantalla_perder.png");
-  
-  for (int i = 0; i < 8; i++) {
-    imagenesBloque[i] = loadImage("bloque" + (i+1) + ".png");
-  }
-  
-  pantalla = "inicio";
+  //bloque1 = loadImage("bloque1.png");
   Fisica.init(this);
   mundo = new FWorld();
-  mundo.setEdges(1);
+  mundo.setEdges();
   
-  cajas = new FBox[numCajas];
-
-  for (int i = 0; i < numCajas; i++) {
-    float w = 80;
-    float h = 60;
-    color c = color(random(255), random(255), random(255));
-    float density = 1000000;
+  pantalla = "inicio";
+  
+  //instanciado de bloques
+   for (int i = 0; i < 8; i++) {
+    imagenesBloque[i] = loadImage("bloque" + (i+1) + ".png");
+ }
+   //cajas = new FBox[numCajas]; // Inicializa el arreglo
+   creacionGarra();
+   creacionPeluche();
+   mundo.add(prismatico);
    
-    FBox caja = crearCajaRaw(w, h, c, density);
-    cajas[i] = caja;
-    mundo.add(caja);
-  }
-  
-  // Inicializa la biblioteca Minim
+   prismatico = new MPrismaticJoint(garraAbierta, peluche);
+   
+   //audio
+   // Inicializa la biblioteca Minim
   minim = new Minim(this);
   
   // Carga el archivo de sonido "perder.mp3"
@@ -67,7 +83,7 @@ void setup() {
   
   // Carga el archivo de sonido "Reloj2.mp3"
   relojSound2 = minim.loadFile("Reloj2.mp3");
-
+   //audio
 }
 
 void draw() {
@@ -120,24 +136,11 @@ void draw() {
 void mousePressed() {
   if (pantalla == "inicio") {
     botonInicio();
-  } else if (pantalla == "juego" && cajasApiladas < 5) {
+  } else if (pantalla == "juego") {
     jugar = true;
     tiempoAnterior = millis();
 
-    for (int i = 0; i < numCajas; i++) {
-      for (int j = i + 1; j < numCajas; j++) {
-        FBox cajaA = cajas[i];
-        FBox cajaB = cajas[j];
-
-        float distancia = dist(cajaA.getX(), cajaA.getY(), cajaB.getX(), cajaB.getY());
-        float radioTotal = (cajaA.getWidth() + cajaB.getWidth()) / 2;
-
-        if (distancia < radioTotal) {
-          cajasApiladas++;
-          break;
-        }
-      }
-    }
+  
   }
 }
 
