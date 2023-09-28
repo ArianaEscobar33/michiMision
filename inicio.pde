@@ -1,11 +1,20 @@
 void pantallaInicio() {
   background(inicio);
-  fill(255, 0, 0);
-  rect(350, 300, 100, 50);
+   mundo.step();
+  //mundo.draw();
+   //pinza.revisarPeluches( misPeluches, mundo );
+//actualizo la pinza
+  pinza.actualizar( mouseX, mouseY, mousePressed );
+  pinza.dibujar();
+ // noFill();
+  //noStroke();
+  //rect(550, 190, 155, 150);  // Cambio de parámetros
+  
+  
 }
 
-void botonInicio() {
-  if ((mouseX > 350) && (mouseX < 350 + 100) && (mouseY > 300) && (mouseY < 300 + 50)) {
+/*void botonInicio() {
+  if ((mouseX > 550) && (mouseX < 550 + 155) && (mouseY > 190) && (mouseY < 190 + 150)) {  // Cambio de parámetros
     pantalla = "juego";
   }
-}
+}*/

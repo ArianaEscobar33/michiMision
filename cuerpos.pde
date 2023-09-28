@@ -1,20 +1,23 @@
-
-
-FBox crearCajaRaw(float w, float h, color c, float g) {
-  float x = random(50, width - w - 50);
-  float y = random(50, height - h - 50);
-  FBox main = new FBox(w, h);
-  main.setPosition(x, y);
-  main.setFillColor(c);
-  main.setFriction(1);
-  float we = (w / 30);
-  float he = (h / 30);
-  main.setDensity((g / (we * he)) * 2);
-  main.setNoStroke();
-  
-  // Seleccionar una imagen aleatoria de los bloques
+ FBox creacionPeluche(){
+  peluche = new FBox(90, 50);
+  peluche.setPosition(random(100,700),543); // Posición inicial 
+  //peluche.setNoStroke();
+  peluche.setFriction(1);
+  peluche.setDensity(100000);
+  peluche.setGrabbable( false );
+  peluche.setName("peluche");
+    // Seleccionar una imagen aleatoria de los bloques
   PImage imagenAleatoria = imagenesBloque[int(random(imagenesBloque.length))];
-  main.attachImage(imagenAleatoria);
-  
-  return main;
+  peluche.attachImage(imagenAleatoria);
+  mundo.add(peluche); // Agrega la garra cerrada al mundo físico
+  misPeluches.add(peluche);
+  return peluche;
 }
+
+/* if ( frameCount % 5 == 0 && frameCount<100 ) {
+    FCircle c = new FCircle( random(30, 80) );
+    c.setPosition( random(100, width-100), 50 );   
+    c.setGrabbable( false );
+    mundo.add( c );
+    misCirculos.add( c );
+  }*/
