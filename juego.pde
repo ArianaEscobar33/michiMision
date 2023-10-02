@@ -104,12 +104,6 @@ void pantallaJuego() {
  }
  //agregar que este quieto el objeto
  //o usar colisiones de fisica para detectar 
- //float yPeluche1 = peluche1.getY();
-// println(yPeluche1);
-
-//if ( yPeluche <= 520 || yPeluche1 <= 520 && clicPresionado == false){
-
-//pantalla="ganar";}
 
 }  
     

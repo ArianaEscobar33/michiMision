@@ -57,12 +57,10 @@ class Pinza{
       image(garraCerrada,x-25,y-360);
       noFill();
       noStroke();
-      //fill( 255,0,0);
     }else{
       image(garraAbierta,x-25,y-360);
       noFill();
       noStroke();
-      //fill( 0,0,255 );
     }
     ellipse( x , y , 50 , 50 );
     pop();
