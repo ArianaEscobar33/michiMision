@@ -28,8 +28,9 @@ boolean jugar = false;
 int numCajas = 5;
 //imagenes
 PImage inicio, fondo, pantallaperder,pantallaGanar,instruccionesImg;
-PImage[] imagenesBloque = new PImage[8];
-
+PImage bloque1,bloque2,bloque3,bloque4,bloque5,bloque6,bloque7,bloque8,bloque9,bloque10;
+//PImage[] imagenesBloque = new PImage[8];
+boolean seCerro, seAbrio;
 
 void setup() {
   size(800, 600);
@@ -40,9 +41,19 @@ void setup() {
   fondo = loadImage("background_roto.png");
   pantallaperder = loadImage("pantalla_perder.png");
   pantallaGanar = loadImage("pantalla_ganar.png");
-  for (int i = 0; i < 8; i++) {
-    imagenesBloque[i] = loadImage("bloque" + (i+1) + ".png");
-  }
+  bloque1 = loadImage("bloque1.png");
+  bloque2 = loadImage("bloque2.png");
+  bloque3 = loadImage("bloque3.png");
+  bloque4 = loadImage("bloque4.png");
+  bloque5 = loadImage("bloque5.png");
+  bloque6 = loadImage("bloque6.png");
+  bloque7 = loadImage("bloque7.png");
+  bloque8 = loadImage("bloque8.png");
+  bloque9 = loadImage("bloque9.png");
+  bloque10 = loadImage("bloque10.png");
+ // for (int i = 0; i < 8; i++) {
+    //imagenesBloque[i] = loadImage("bloque" + (i+1) + ".png");
+  //}
   
   //fisica
   Fisica.init(this);
@@ -50,11 +61,11 @@ void setup() {
   mundo.setEdges(1);
   pinza = new Pinza();
   misPeluches = new ArrayList();
-  peluche_1  = creacionPeluche(); 
-  peluche_2  = creacionPeluche();
-  peluche_3  = creacionPeluche();
-  peluche_4  = creacionPeluche();
-  peluche_5  = creacionPeluche();
+  peluche_1  = creacionPeluche1(); 
+  peluche_2  = creacionPeluche2();
+  peluche_3  = creacionPeluche3();
+  peluche_4  = creacionPeluche4();
+  peluche_5  = creacionPeluche5();
   
   //sonidos
   minim = new Minim(this);

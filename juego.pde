@@ -40,7 +40,7 @@ void pantallaJuego() {
  textSize(22);
  text(tiempoFormateado, 115, 86);
  
- float yPeluche1 = peluche_1.getY(); 
+ /*float yPeluche1 = peluche_1.getY(); 
  float yPeluche2 = peluche_2.getY();
  float yPeluche3 = peluche_3.getY();
  float yPeluche4 = peluche_4.getY();
@@ -101,9 +101,33 @@ void pantallaJuego() {
 // if (max<=380 && clicPresionado==false && distanciaMenor<=70){
   if (max<=380 && distanciaMenor<=70){
     pantalla="ganar"; 
- }
+ }*/
  //agregar que este quieto el objeto
  //o usar colisiones de fisica para detectar 
+ 
+float xPeluche1 = peluche_1.getX(); 
+float xPeluche2 = peluche_2.getX();
+float xPeluche3 = peluche_3.getX();
+float xPeluche4 = peluche_4.getX();
+float xPeluche5 = peluche_5.getX();
+
+float yPeluche1 = peluche_1.getY(); 
+float yPeluche2 = peluche_2.getY();
+float yPeluche3 = peluche_3.getY();
+float yPeluche4 = peluche_4.getY();
+float yPeluche5 = peluche_5.getY();
+
+ float distancia1 = dist(xPeluche1 , yPeluche1 , xPeluche2 , yPeluche2); 
+ float distancia2 = dist(xPeluche2 , yPeluche2 , xPeluche3 , yPeluche3); 
+ float distancia3 = dist(xPeluche3 , yPeluche3 , xPeluche4 , yPeluche4); 
+ float distancia4 = dist(xPeluche4 , yPeluche4 , xPeluche5 , yPeluche5); 
+ 
+ 
+
+
+if (distancia1 < 55 && distancia2 < 55 && distancia3 < 55 && distancia4 < 55 && yPeluche5<=450 && seAbrio==true){
+pantalla="ganar";
+}
 
 }  
     

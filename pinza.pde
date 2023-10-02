@@ -3,7 +3,7 @@ class Pinza{
   float x,y;
   boolean cerrada = false;
   boolean antesCerrada; 
-  boolean seCerro, seAbrio;
+  
   float tolerancia  = 50;
   
   FMouseJoint manija = null;
