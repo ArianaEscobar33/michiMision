@@ -9,7 +9,12 @@
     // Seleccionar una imagen aleatoria de los bloques
  // PImage imagenAleatoria = imagenesBloque[int(random(imagenesBloque.length))];
   //peluche.attachImage(imagenAleatoria);
+  float imgRandom1 = random(1);
+  if(imgRandom1 < 0.5){
   peluche.attachImage(bloque1);
+  } else{
+  peluche.attachImage(bloque2);
+  }  
   mundo.add(peluche);
   misPeluches.add(peluche);
   return peluche;
@@ -26,7 +31,12 @@
     // Seleccionar una imagen aleatoria de los bloques
  // PImage imagenAleatoria = imagenesBloque[int(random(imagenesBloque.length))];
   //peluche.attachImage(imagenAleatoria);
-  peluche.attachImage(bloque2);
+   float imgRandom2 = random(1);
+  if(imgRandom2 < 0.5){
+  peluche.attachImage(bloque3);
+  } else{
+  peluche.attachImage(bloque4);
+  } 
   mundo.add(peluche);
   misPeluches.add(peluche);
   return peluche;
@@ -43,7 +53,13 @@
     // Seleccionar una imagen aleatoria de los bloques
  // PImage imagenAleatoria = imagenesBloque[int(random(imagenesBloque.length))];
   //peluche.attachImage(imagenAleatoria);
-  peluche.attachImage(bloque3);
+   float imgRandom3 = random(1);
+  if(imgRandom3 < 0.5){
+  peluche.attachImage(bloque5);
+  } else{
+  peluche.attachImage(bloque6);
+  } 
+  //peluche.attachImage(bloque3);
   mundo.add(peluche);
   misPeluches.add(peluche);
   return peluche;
@@ -60,7 +76,12 @@
     // Seleccionar una imagen aleatoria de los bloques
  // PImage imagenAleatoria = imagenesBloque[int(random(imagenesBloque.length))];
   //peluche.attachImage(imagenAleatoria);
-  peluche.attachImage(bloque4);
+   float imgRandom4 = random(1);
+  if(imgRandom4 < 0.5){
+  peluche.attachImage(bloque7);
+  } else{
+  peluche.attachImage(bloque8);
+  } 
   mundo.add(peluche);
   misPeluches.add(peluche);
   return peluche;
@@ -77,7 +98,12 @@
     // Seleccionar una imagen aleatoria de los bloques
  // PImage imagenAleatoria = imagenesBloque[int(random(imagenesBloque.length))];
   //peluche.attachImage(imagenAleatoria);
-  peluche.attachImage(bloque5);
+   float imgRandom5 = random(1);
+  if(imgRandom5 < 0.5){
+  peluche.attachImage(bloque9);
+  } else{
+  peluche.attachImage(bloque10);
+  } 
   mundo.add(peluche);
   misPeluches.add(peluche);
   return peluche;
