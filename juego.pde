@@ -123,9 +123,9 @@ float yPeluche5 = peluche_5.getY();
  float distancia4 = dist(xPeluche4 , yPeluche4 , xPeluche5 , yPeluche5); 
  
  
+println(yPeluche5);
 
-
-if (distancia1 < 55 && distancia2 < 55 && distancia3 < 55 && distancia4 < 55 && yPeluche5<=500 && seAbrio==true){
+if (distancia1 < 55 && distancia2 < 55 && distancia3 < 55 && distancia4 < 55 && yPeluche5<=420 && cerrada==false){
 pantalla="ganar";
 }
 

@@ -31,7 +31,7 @@ PImage inicio, fondo, pantallaperder,pantallaGanar,instruccionesImg;
 PImage bloque1,bloque2,bloque3,bloque4,bloque5,bloque6,bloque7,bloque8,bloque9,bloque10;
 //PImage[] imagenesBloque = new PImage[8];
 boolean seCerro, seAbrio;
-
+boolean cerrada = false;
 void setup() {
   size(800, 600);
   pantalla = "inicio";

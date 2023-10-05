@@ -1,7 +1,7 @@
 class Pinza{
   PImage garraCerrada,garraAbierta;
   float x,y;
-  boolean cerrada = false;
+  
   boolean antesCerrada; 
   
   float tolerancia  = 50;
