@@ -21,6 +21,7 @@ class Pinza{
     seAbrio = !cerrada && antesCerrada;
     antesCerrada = cerrada;
     if( manija!=null ){
+      println("estoPasa");
       manija.setTarget(x,y);
     }
   }

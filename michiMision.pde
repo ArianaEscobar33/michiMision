@@ -40,6 +40,7 @@ float x = 400; // posicion de la mano
 float y = 0; // posicion de la mano
 boolean manoCerrada = false; // Variable para rastrear si la mano está cerrada o abierta
 boolean manoAbierta = true; // Supongamos que la garra está abierta al principio
+boolean cierrePinza;
 
 void setup() {
   size(800, 600);
@@ -97,7 +98,7 @@ void setup() {
 }
 
 void draw() {
-
+cierrePinza();
   //la logica es que si pantalla== el nombre de la pantalla 
   //se muestre la funcion de la pantalla que deseamos
  if (pantalla == "inicio") {
@@ -114,7 +115,7 @@ void draw() {
 
 }
 
-void mousePressed() {
+/*void mousePressed() {
   if (pantalla == "inicio") {
     botonGeneral(550, 190, 155, 150, "instrucciones");
   } else if (pantalla == "juego" ) {
@@ -130,6 +131,33 @@ void mousePressed() {
     pelucheSound.play();
   }
     
+}*/
+
+void cierrePinza(){
+if(manoCerrada==true && manoAbierta==false){
+  println("cierra");
+cierrePinza=true;
+}else
+cierrePinza=false;
+  
+if(cierrePinza==true){
+ if (pantalla == "inicio") {
+    botonGeneral(550, 190, 155, 150, "instrucciones");
+  } else if (pantalla == "juego" ) {
+    tiempoAnterior = millis();
+    pelucheSound.rewind(); 
+    pelucheSound.play();
+  } else if (pantalla=="perder"){
+    botonPerder(120, 400, 155, 150, "inicio" );
+  } else if (pantalla == "instrucciones") {  
+    pantalla = "juego"; 
+    tiempoAnterior = millis();
+    pelucheSound.rewind(); 
+    pelucheSound.play();
+  } 
+
+}  
+  
 }
 
 
