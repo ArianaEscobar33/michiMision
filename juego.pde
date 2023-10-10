@@ -8,7 +8,7 @@ void pantallaJuego() {
   mundo.draw();
    pinza.revisarPeluches( misPeluches, mundo );
 //actualizo la pinza
-  pinza.actualizar( mouseX, mouseY, mousePressed );
+  pinza.actualizar( x, y, mousePressed );
   pinza.dibujar();
  if (!juegoComenzado) {
       jugar = true;

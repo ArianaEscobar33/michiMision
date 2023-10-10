@@ -32,6 +32,15 @@ PImage bloque1,bloque2,bloque3,bloque4,bloque5,bloque6,bloque7,bloque8,bloque9,b
 //PImage[] imagenesBloque = new PImage[8];
 boolean seCerro, seAbrio;
 boolean cerrada = false;
+
+//captura
+import oscP5.*;
+OscP5 oscP5;
+float x = 400; // posicion de la mano
+float y = 0; // posicion de la mano
+boolean manoCerrada = false; // Variable para rastrear si la mano está cerrada o abierta
+boolean manoAbierta = true; // Supongamos que la garra está abierta al principio
+
 void setup() {
   size(800, 600);
   pantalla = "inicio";
@@ -82,6 +91,9 @@ void setup() {
   relojSound2 = minim.loadFile("Reloj2.mp3");
   pelucheSound = minim.loadFile("peluche.mp3");
 
+  //captura
+   oscP5 = new OscP5(this, 8008); // Reemplaza 8008 con el puerto correcto de HandPose OSC
+  
 }
 
 void draw() {
