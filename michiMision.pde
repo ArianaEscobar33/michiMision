@@ -42,6 +42,10 @@ boolean manoCerrada = false; // Variable para rastrear si la mano está cerrada 
 boolean manoAbierta = true; // Supongamos que la garra está abierta al principio
 boolean cierrePinza;
 
+//video
+import processing.video.*;
+Movie movie;
+
 void setup() {
   size(800, 600);
   pantalla = "inicio";
@@ -95,43 +99,43 @@ void setup() {
   //captura
    oscP5 = new OscP5(this, 8008); // Reemplaza 8008 con el puerto correcto de HandPose OSC
   
+  //video
+  movie = new Movie(this, "cinematica.mp4");
 }
 
 void draw() {
-cierrePinza();
+
   //la logica es que si pantalla== el nombre de la pantalla 
   //se muestre la funcion de la pantalla que deseamos
  if (pantalla == "inicio") {
     pantallaInicio();
-  } else if (pantalla == "instrucciones") {  
-    pantallaInstrucciones();
-  } else if (pantalla == "juego") {
-     pantallaJuego(); 
+    cierrePinza();
+  }else if (pantalla=="cinematica") {
+    pantallamovie();
+    int tiempo = 0;
+    tiempo += frameCount;
+    println(tiempo);
+    if(tiempo > 300){
+      movie.stop();
+      pantalla ="juego";
+      }
+  }  else if (pantalla == "juego") {
+    pantallaJuego();
+    cierrePinza();
   } else if (pantalla == "perder") {
-   pantallaPerder();
-  }else if (pantalla=="ganar"){
-  pantallaGanar();
+    pantallaPerder();
+    cierrePinza();
+  } else if (pantalla=="ganar") {
+    pantallaGanar();
+    cierrePinza();
+  } else if (pantalla == "instrucciones") {  // Agregamos la pantalla de instrucciones.
+    pantallaInstrucciones();
+    cierrePinza();
   } 
 
 }
 
-/*void mousePressed() {
-  if (pantalla == "inicio") {
-    botonGeneral(550, 190, 155, 150, "instrucciones");
-  } else if (pantalla == "juego" ) {
-    tiempoAnterior = millis();
-    pelucheSound.rewind(); 
-    pelucheSound.play();
-  } else if (pantalla=="perder"){
-    botonPerder(120, 400, 155, 150, "inicio" );
-  } else if (pantalla == "instrucciones") {  
-    pantalla = "juego"; 
-    tiempoAnterior = millis();
-    pelucheSound.rewind(); 
-    pelucheSound.play();
-  }
-    
-}*/
+
 
 void cierrePinza(){
 if(manoCerrada==true && manoAbierta==false){
@@ -145,15 +149,12 @@ if(cierrePinza==true){
     botonGeneral(550, 190, 155, 150, "instrucciones");
   } else if (pantalla == "juego" ) {
     tiempoAnterior = millis();
-    pelucheSound.rewind(); 
+    pelucheSound.rewind(); // Reiniciamos el sonido para que se pueda reproducir desde el principio
     pelucheSound.play();
-  } else if (pantalla=="perder"){
+  } else if (pantalla=="perder") {
     botonPerder(120, 400, 155, 150, "inicio" );
-  } else if (pantalla == "instrucciones") {  
-    pantalla = "juego"; 
-    tiempoAnterior = millis();
-    pelucheSound.rewind(); 
-    pelucheSound.play();
+  } else if (pantalla == "instrucciones") {  // Cambiamos cualquier clic en instrucciones a la pantalla de juego.
+    pantalla = "cinematica";  // Cambia a la pantalla de juego.
   } 
 
 }  
