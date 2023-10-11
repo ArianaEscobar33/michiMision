@@ -1,6 +1,7 @@
 
 void botonGeneral(int ubix, int ubiy, int tamx, int tamy, String pantallapasar) {
-  noFill ();
+  //noFill ();
+  fill(0);
   noStroke();
   rect(ubix, ubiy, tamx, tamy);
   if ((x > ubix) && (x < ubix + tamx) && (y > ubiy) && (y < ubiy + tamy)) {  // Cambio de parámetros

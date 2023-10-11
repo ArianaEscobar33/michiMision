@@ -47,6 +47,7 @@ import processing.video.*;
 Movie movie;
 import gifAnimation.*;
 Gif loopingGif;
+int tiempoCinematica;
   
 void setup() {
   size(800, 600);
@@ -116,12 +117,12 @@ void draw() {
     cierrePinza();
   }else if (pantalla=="cinematica") {
     pantallamovie();
-    int tiempo = 0;
-    tiempo += frameCount;
-    println(tiempo);
-    if(tiempo > 300){
+    tiempoCinematica = 0;
+    tiempoCinematica += frameCount;
+    println(tiempoCinematica);
+    if(tiempoCinematica > 300){
       movie.stop();
-      pantalla ="juego";
+      pantalla ="instrucciones";
       }
   }  else if (pantalla == "juego") {
     pantallaJuego();
@@ -150,7 +151,7 @@ cierrePinza=false;
   
 if(cierrePinza==true){
  if (pantalla == "inicio") {
-    botonGeneral(550, 190, 155, 150, "instrucciones");
+    botonGeneral(550, 190, 155, 150, "cinematica");
   } else if (pantalla == "juego" ) {
     tiempoAnterior = millis();
     pelucheSound.rewind(); // Reiniciamos el sonido para que se pueda reproducir desde el principio
@@ -159,7 +160,7 @@ if(cierrePinza==true){
     botonPerder(120, 400, 155, 150, "juego" );
     reiniciarJuego();
   } else if (pantalla == "instrucciones") {  // Cambiamos cualquier clic en instrucciones a la pantalla de juego.
-    pantalla = "cinematica";  // Cambia a la pantalla de juego.
+    botonGeneral(550, 190, 155, 150, "juego");
   } 
 
 }  
