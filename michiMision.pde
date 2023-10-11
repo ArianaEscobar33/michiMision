@@ -142,11 +142,11 @@ void draw() {
 
 
 void cierrePinza(){
-if(manoCerrada==false && manoAbierta==true){
+if(manoCerrada==true && manoAbierta==false){
   println("cierra");
-cierrePinza=false;
-}else
 cierrePinza=true;
+}else
+cierrePinza=false;
   
 if(cierrePinza==true){
  if (pantalla == "inicio") {
@@ -157,6 +157,7 @@ if(cierrePinza==true){
     pelucheSound.play();
   } else if (pantalla=="perder") {
     botonPerder(120, 400, 155, 150, "juego" );
+    reiniciarJuego();
   } else if (pantalla == "instrucciones") {  // Cambiamos cualquier clic en instrucciones a la pantalla de juego.
     pantalla = "cinematica";  // Cambia a la pantalla de juego.
   } 

@@ -2,7 +2,7 @@
   peluche = new FBox(90, 40);
   peluche.setPosition(random(100,700),543); 
   peluche.setFriction(1);
-  peluche.setDensity(100000);
+  peluche.setDensity(1000);
   peluche.setGrabbable( false );
   peluche.setName("peluche1");
   peluche.setVelocity(50,0);
@@ -24,7 +24,7 @@
   peluche = new FBox(90, 40);
   peluche.setPosition(random(100,700),543); 
   peluche.setFriction(1);
-  peluche.setDensity(100000);
+  peluche.setDensity(1000);
   peluche.setGrabbable( false );
   peluche.setName("peluche2");
   peluche.setVelocity(50,0);
@@ -46,7 +46,7 @@
   peluche = new FBox(90, 40);
   peluche.setPosition(random(100,700),543); 
   peluche.setFriction(1);
-  peluche.setDensity(100000);
+  peluche.setDensity(1000);
   peluche.setGrabbable( false );
   peluche.setName("peluche3");
   peluche.setVelocity(50,0);
@@ -69,7 +69,7 @@
   peluche = new FBox(90, 40);
   peluche.setPosition(random(100,700),543); 
   peluche.setFriction(1);
-  peluche.setDensity(100000);
+  peluche.setDensity(1000);
   peluche.setGrabbable( false );
   peluche.setName("peluche4");
   peluche.setVelocity(50,0);
@@ -91,7 +91,7 @@
   peluche = new FBox(90, 40);
   peluche.setPosition(random(100,700),543); 
   peluche.setFriction(1);
-  peluche.setDensity(100000);
+  peluche.setDensity(1000);
   peluche.setGrabbable( false );
   peluche.setName("peluche5");
   peluche.setVelocity(50,0);
