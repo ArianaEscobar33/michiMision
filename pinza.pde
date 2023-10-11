@@ -51,6 +51,8 @@ class Pinza{
     
   }
   
+ 
+  
   
   void dibujar(){
     push();

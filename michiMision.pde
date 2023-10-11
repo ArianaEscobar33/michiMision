@@ -8,7 +8,7 @@ AudioPlayer relojSound2;
 AudioPlayer pelucheSound;
 AudioPlayer ganarSound;
 AudioPlayer reiniciarSound;
-int tiempoInicial = 30;
+int tiempoInicial = 60;
 int tiempoRestante = tiempoInicial;
 int tiempoAnterior;
 
@@ -17,8 +17,11 @@ import fisica.*;
 FWorld mundo;
 Pinza pinza;
 FBox[] peluches;
+//FBox[] extrasPeluches;
+FBox extras;
 FBox peluche, peluche_1, peluche_2, peluche_3, peluche_4, peluche_5;
 ArrayList <FBox> misPeluches;
+//ArrayList <FBox> misExtras;
 
 //juego
 String pantalla;
@@ -27,9 +30,9 @@ boolean ganaste = false;
 boolean jugar = false;
 int numCajas = 5;
 //imagenes
-PImage inicio, fondo, pantallaperder,pantallaGanar,instruccionesImg;
+PImage inicio, fondo, pantallaperder,pantallaGanar,instrucciones1Img,instrucciones2Img;
 PImage bloque1,bloque2,bloque3,bloque4,bloque5,bloque6,bloque7,bloque8,bloque9,bloque10;
-//PImage[] imagenesBloque = new PImage[8];
+PImage[] imagenesBloque = new PImage[10];
 boolean seCerro, seAbrio;
 boolean cerrada = false;
 
@@ -47,14 +50,15 @@ import processing.video.*;
 Movie movie;
 import gifAnimation.*;
 Gif loopingGif;
-int tiempoCinematica;
+
   
 void setup() {
   size(800, 600);
   pantalla = "inicio";
   //imagenes
   inicio = loadImage("Inicio2.png");
-  instruccionesImg = loadImage("instrucciones2.png");
+  instrucciones1Img = loadImage("instrucciones1.png");
+  instrucciones2Img = loadImage("instrucciones2.png");
   fondo = loadImage("background_roto.png");
   pantallaperder = loadImage("pantalla_perder.png");
   pantallaGanar = loadImage("pantalla_ganar.png");
@@ -68,9 +72,9 @@ void setup() {
   bloque8 = loadImage("bloque8.png");
   bloque9 = loadImage("bloque9.png");
   bloque10 = loadImage("bloque10.png");
- // for (int i = 0; i < 8; i++) {
-    //imagenesBloque[i] = loadImage("bloque" + (i+1) + ".png");
-  //}
+  for (int i = 0; i < 10; i++) {
+    imagenesBloque[i] = loadImage("extra" + (i+1) + ".png");
+  }
   
   //fisica
   Fisica.init(this);
@@ -84,6 +88,7 @@ void setup() {
   peluche_4  = creacionPeluche4();
   peluche_5  = creacionPeluche5();
   
+  extras  = creacionPeluche(); 
   //sonidos
   minim = new Minim(this);
   
@@ -117,12 +122,12 @@ void draw() {
     cierrePinza();
   }else if (pantalla=="cinematica") {
     pantallamovie();
-    tiempoCinematica = 0;
+    int tiempoCinematica = 0;
     tiempoCinematica += frameCount;
     println(tiempoCinematica);
     if(tiempoCinematica > 300){
       movie.stop();
-      pantalla ="instrucciones";
+      pantalla ="instrucciones1";
       }
   }  else if (pantalla == "juego") {
     pantallaJuego();
@@ -133,10 +138,13 @@ void draw() {
   } else if (pantalla=="ganar") {
     pantallaGanar();
     cierrePinza();
-  } else if (pantalla == "instrucciones") {  // Agregamos la pantalla de instrucciones.
-    pantallaInstrucciones();
+  } else if (pantalla == "instrucciones1") {  // Agregamos la pantalla de instrucciones.
+    pantallaInstrucciones1();
     cierrePinza();
-  } 
+  } else if (pantalla == "instrucciones2") {  // Agregamos la pantalla de instrucciones.
+    pantallaInstrucciones2();
+    cierrePinza();
+  }
 
 }
 
@@ -159,8 +167,10 @@ if(cierrePinza==true){
   } else if (pantalla=="perder") {
     botonPerder(120, 400, 155, 150, "juego" );
     reiniciarJuego();
-  } else if (pantalla == "instrucciones") {  // Cambiamos cualquier clic en instrucciones a la pantalla de juego.
-    botonGeneral(550, 190, 155, 150, "juego");
+  } else if (pantalla == "instrucciones1") {  // Cambiamos cualquier clic en instrucciones a la pantalla de juego.
+    pantalla ="instrucciones2";
+  } else if (pantalla == "instrucciones2") {  // Cambiamos cualquier clic en instrucciones a la pantalla de juego.
+    botonGeneral(550, 425, 100, 100, "juego");
   } 
 
 }  

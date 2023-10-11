@@ -3,7 +3,7 @@ void pantallaPerder() {
   background(pantallaperder);
   pinza.actualizar( x, y, cierrePinza );
   pinza.dibujar();
-  tiempoInicial = 30;
+  tiempoInicial = 60;
   perderSound.play();
   fondoMusica.pause();
   relojSound.pause();
@@ -21,16 +21,16 @@ void reiniciarJuego() {
   fondoMusica.setGain(0.5);
   
   // Eliminar todos los peluches existentes
-  mundo.remove(peluche_1);
-  mundo.remove(peluche_2);
-  mundo.remove(peluche_3);
-  mundo.remove(peluche_4);
-  mundo.remove(peluche_5);
+ // mundo.remove(peluche_1);
+  //mundo.remove(peluche_2);
+  //mundo.remove(peluche_3);
+  //mundo.remove(peluche_4);
+  //mundo.remove(peluche_5);
   
   // Restaurar la cantidad de peluches
-  peluche_1 = creacionPeluche1(); // Vuelve a crear los objetos peluche o realiza cualquier otra inicialización necesaria.
-  peluche_2 = creacionPeluche2();
-  peluche_3 = creacionPeluche3();
-  peluche_4 = creacionPeluche4();
-  peluche_5 = creacionPeluche5();
+  //peluche_1 = creacionPeluche1(); // Vuelve a crear los objetos peluche o realiza cualquier otra inicialización necesaria.
+  //peluche_2 = creacionPeluche2();
+  //peluche_3 = creacionPeluche3();
+  //peluche_4 = creacionPeluche4();
+  //peluche_5 = creacionPeluche5();
 }

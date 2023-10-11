@@ -1,5 +1,12 @@
-void pantallaInstrucciones() {
-  background(instruccionesImg);
+void pantallaInstrucciones1() {
+  background(instrucciones1Img);
+  mundo.step();
+  pinza.actualizar( x, y, cierrePinza );
+  pinza.dibujar();
+}
+
+void pantallaInstrucciones2() {
+  background(instrucciones2Img);
   mundo.step();
   pinza.actualizar( x, y, cierrePinza );
   pinza.dibujar();
