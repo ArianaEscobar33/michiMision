@@ -45,7 +45,9 @@ boolean cierrePinza;
 //video
 import processing.video.*;
 Movie movie;
-
+import gifAnimation.*;
+Gif loopingGif;
+  
 void setup() {
   size(800, 600);
   pantalla = "inicio";
@@ -101,6 +103,8 @@ void setup() {
   
   //video
   movie = new Movie(this, "cinematica.mp4");
+  loopingGif = new Gif(this,"gato_animado.gif");
+  loopingGif.loop();
 }
 
 void draw() {
@@ -138,11 +142,11 @@ void draw() {
 
 
 void cierrePinza(){
-if(manoCerrada==true && manoAbierta==false){
+if(manoCerrada==false && manoAbierta==true){
   println("cierra");
-cierrePinza=true;
-}else
 cierrePinza=false;
+}else
+cierrePinza=true;
   
 if(cierrePinza==true){
  if (pantalla == "inicio") {
@@ -152,7 +156,7 @@ if(cierrePinza==true){
     pelucheSound.rewind(); // Reiniciamos el sonido para que se pueda reproducir desde el principio
     pelucheSound.play();
   } else if (pantalla=="perder") {
-    botonPerder(120, 400, 155, 150, "inicio" );
+    botonPerder(120, 400, 155, 150, "juego" );
   } else if (pantalla == "instrucciones") {  // Cambiamos cualquier clic en instrucciones a la pantalla de juego.
     pantalla = "cinematica";  // Cambia a la pantalla de juego.
   } 

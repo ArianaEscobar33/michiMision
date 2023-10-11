@@ -4,6 +4,7 @@ void pantallaJuego() {
   background(fondo);  
   temporizador= loadImage("temporizador.png");
   image(temporizador, 55, 20, 150, 100);  
+  image(loopingGif, 600,450,150,150);
   mundo.step();
   mundo.draw();
    pinza.revisarPeluches( misPeluches, mundo );
