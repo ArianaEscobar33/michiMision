@@ -1,9 +1,10 @@
  FBox creacionPeluche1(){
   peluche = new FBox(90, 40);
-  peluche.setPosition(random(100,700),543); 
+  peluche.setPosition(random(200,600),543); 
   peluche.setFriction(1);
   peluche.setDensity(1000);
-  peluche.setAngularDamping(5);
+  peluche.setAngularDamping(10);
+  peluche.setRotatable(false);
   peluche.setGrabbable( false );
   peluche.setName("peluche1");
   peluche.setVelocity(50,0);
@@ -23,10 +24,10 @@
 
  FBox creacionPeluche2(){
   peluche = new FBox(90, 40);
-  peluche.setPosition(random(100,700),543); 
+  peluche.setPosition(random(200,600),543); 
   peluche.setFriction(1);
   peluche.setDensity(1000);
-  peluche.setAngularDamping(5);
+  peluche.setAngularDamping(10);
   peluche.setGrabbable( false );
   peluche.setName("peluche2");
   peluche.setVelocity(50,0);
@@ -46,10 +47,10 @@
 
  FBox creacionPeluche3(){
   peluche = new FBox(90, 40);
-  peluche.setPosition(random(100,700),543); 
+  peluche.setPosition(random(200,600),543); 
   peluche.setFriction(1);
   peluche.setDensity(1000);
-  peluche.setAngularDamping(5);
+  peluche.setAngularDamping(10);
   peluche.setGrabbable( false );
   peluche.setName("peluche3");
   peluche.setVelocity(50,0);
@@ -70,10 +71,10 @@
 
  FBox creacionPeluche4(){
   peluche = new FBox(90, 40);
-  peluche.setPosition(random(100,700),543); 
+  peluche.setPosition(random(200,600),543); 
   peluche.setFriction(1);
   peluche.setDensity(1000);
-  peluche.setAngularDamping(5);
+  peluche.setAngularDamping(10);
   peluche.setGrabbable( false );
   peluche.setName("peluche4");
   peluche.setVelocity(50,0);
@@ -93,10 +94,10 @@
 
  FBox creacionPeluche5(){
   peluche = new FBox(90, 40);
-  peluche.setPosition(random(100,700),543); 
+  peluche.setPosition(random(200,600),543); 
   peluche.setFriction(1);
   peluche.setDensity(1000);
-  peluche.setAngularDamping(5);
+  peluche.setAngularDamping(10);
   peluche.setGrabbable( false );
   peluche.setName("peluche5");
   peluche.setVelocity(50,0);
@@ -114,19 +115,15 @@
   return peluche;
 }
 
-FBox creacionPeluche(){
-  peluche = new FBox(90, 50);
-  peluche.setPosition(random(100,700),543); // Posición inicial 
-  peluche.setNoStroke();
-  peluche.setFriction(1);
-  peluche.setDensity(1000);
-  peluche.setAngularDamping(5);
-  peluche.setName("peluche");
-    // Seleccionar una imagen aleatoria de los bloques
+FBox crearExtras() {
+  FBox extras = new FBox(90, 50);
+  extras.setPosition(random(200,600), 543);  // Posición inicial
+  extras.setNoStroke();
+  extras.setFriction(1);
+  extras.setDensity(1000);
+  peluche.setAngularDamping(10);
+  extras.setName("extras");
   PImage imagenAleatoria = imagenesBloque[int(random(imagenesBloque.length))];
-  peluche.attachImage(imagenAleatoria);
-  mundo.add(peluche); // Agrega la garra cerrada al mundo físico
-  
-  return peluche;
-  
+  extras.attachImage(imagenAleatoria);
+  return extras;
 }

@@ -17,11 +17,9 @@ import fisica.*;
 FWorld mundo;
 Pinza pinza;
 FBox[] peluches;
-//FBox[] extrasPeluches;
 FBox extras;
 FBox peluche, peluche_1, peluche_2, peluche_3, peluche_4, peluche_5;
 ArrayList <FBox> misPeluches;
-//ArrayList <FBox> misExtras;
 
 //juego
 String pantalla;
@@ -88,7 +86,12 @@ void setup() {
   peluche_4  = creacionPeluche4();
   peluche_5  = creacionPeluche5();
   
-  extras  = creacionPeluche(); 
+  for (int i = 0; i < 3; i++) {
+    FBox nuevoExtras = crearExtras();
+    mundo.add(nuevoExtras);
+    misPeluches.add(nuevoExtras);
+  }
+ 
   //sonidos
   minim = new Minim(this);
   
@@ -111,6 +114,8 @@ void setup() {
   movie = new Movie(this, "cinematica.mp4");
   loopingGif = new Gif(this,"gato_animado.gif");
   loopingGif.loop();
+  
+  
 }
 
 void draw() {

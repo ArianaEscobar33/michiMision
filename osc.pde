@@ -17,7 +17,7 @@ void oscEvent(OscMessage msg) {
     float distanciaDedos = dist(dedoMenique[0], dedoMenique[2], dedoPulgar[0], dedoPulgar[2]);
 
     // Determinar si la mano está cerrada o abierta basándose en la distancia
-    if (distanciaDedos > 50) {
+    if (distanciaDedos > 70) {
       manoCerrada = false;
       manoAbierta = true;
     } else {
